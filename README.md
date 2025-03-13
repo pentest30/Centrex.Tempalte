@@ -4,7 +4,7 @@
 
 ## Overview
 
-Saylo.Centrex is a robust, scalable microservices platform built on clean architecture principles with multi-tenancy support. The platform is designed to provide a comprehensive solution for centralized communication services including chat, identity management, notifications, provisioning, and more.
+Saylo.Centrex is a robust, scalable microservices platform built on clean architecture principles with multi-tenancy support. The platform is designed to provide a comprehensive solution.
 
 ## Architecture
 
@@ -21,7 +21,8 @@ This platform strictly follows clean architecture principles:
 
 The platform is divided into the following microservices:
 
-- **Identity Service**: Authentication, authorization, and user management
+- **Identity Service**: Authentication, authorization, and user management using OpenIddict for OAuth 2.0/OpenID Connect
+
 - **API Gateway**: Unified entry point for client applications
 
 ### Multi-tenancy
