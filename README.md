@@ -32,7 +32,6 @@ Saylo.Centrex supports multi-tenancy with the following features:
 - Tenant isolation at data and service levels
 - Tenant-specific configuration and customization
 - Shared infrastructure with logical separation
-- Cross-tenant analytics and administration capabilities
 
 ## Getting Started
 
