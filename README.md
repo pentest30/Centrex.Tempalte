@@ -108,7 +108,6 @@ docker-compose up -d
 ### Tenant Resolution
 
 Tenants are identified through:
-- Subdomain analysis
 - Request headers
 - Authentication tokens
 
@@ -118,22 +117,6 @@ Data isolation is achieved using:
 - Schema-based separation
 - Row-level filtering
 - Database-per-tenant (for high-security requirements)
-
-### Tenant Configuration
-
-Each tenant can configure:
-- Feature availability
-- Branding and UI customization
-- Integration endpoints
-- User roles and permissions
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
