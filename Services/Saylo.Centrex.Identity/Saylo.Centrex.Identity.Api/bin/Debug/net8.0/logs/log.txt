@@ -1,0 +1,1294 @@
+2025-01-02 14:25:04.419 +01:00 [INF] Start installing Hangfire SQL objects...
+2025-01-02 14:25:04.815 +01:00 [INF] Hangfire SQL objects installed.
+2025-01-02 14:25:04.943 +01:00 [INF] Successfully scheduled job OutboxPublisherJob with cron expression * * * * *
+2025-01-02 14:25:05.304 +01:00 [WRN] No instantiatable types implementing `IEntityTypeConfiguration` were found while while scanning assembly 'Saylo.Centrex.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+2025-01-02 14:25:05.459 +01:00 [WRN] Entity 'ApplicationUser' has a global query filter defined and is the required end of a relationship with the entity 'AdminUserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-01-02 14:25:05.758 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-02 14:25:05.766 +01:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-01-02 14:25:05.778 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-01-02 14:25:05.816 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-01-02 14:25:05.830 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-02 14:25:05.832 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-02 14:25:05.838 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-02 14:25:05.854 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-01-02 14:25:05.862 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-01-02 14:25:05.885 +01:00 [INF] Starting RabbitMQ Consumer Service...
+2025-01-02 14:25:05.964 +01:00 [INF] Now listening on: http://localhost:5000
+2025-01-02 14:25:05.968 +01:00 [INF] Starting Hangfire Server using job storage: 'SQL Server (custom)'
+2025-01-02 14:25:05.968 +01:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-01-02 14:25:05.968 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 16
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-01-02 14:25:05.976 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-02 14:25:05.976 +01:00 [INF] Hosting environment: Production
+2025-01-02 14:25:05.976 +01:00 [INF] Content root path: C:\Projects\saylo.prototype\src\Services\Saylo.Centrex.Identity\Saylo.Centrex.Identity.Api\bin\Debug\net8.0
+2025-01-02 14:25:05.990 +01:00 [INF] Server i-baouche-p:14612:ff5408ba successfully announced in 11,347 ms
+2025-01-02 14:25:05.992 +01:00 [INF] Server i-baouche-p:14612:ff5408ba is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-01-02 14:25:05.998 +01:00 [INF] Server i-baouche-p:14612:ff5408ba all the dispatchers started
+2025-01-02 14:25:05.998 +01:00 [INF] 1 servers were removed due to timeout
+2025-01-02 14:25:06.368 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-01-02 14:25:53.812 +01:00 [INF] Tenant resolved by HeaderTenantResolver: 6A3B326C-B445-4029-8094-52B8B1F1C833
+2025-01-02 14:25:53.964 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Administrator], [a].[ConnectionString], [a].[CreatedDateTime], [a].[Description], [a].[Domain], [a].[Email], [a].[IsActive], [a].[Name], [a].[RowVersion], [a].[TenantId], [a].[TypeEntity], [a].[UpdatedDateTime]
+FROM [Admin].[AdministrationDomains] AS [a]
+WHERE [a].[Id] = @__id_0 AND [a].[IsActive] = CAST(1 AS bit)
+2025-01-02 14:25:54.395 +01:00 [INF] Handling CreateEnterpriseCommand {"Name":"Haydrapharm SE0145157345","Description":"Telecommunication Enterprise","Siret":"70052228024514","MainAddress":{"Street":"123 Main Avenue","City":"Algiers","State":"DZ","PostalCode":"16000","Country":"Algeria","$type":"Address"},"SecondAddress":null,"CorrelationId":null,"$type":"CreateEnterpriseCommand"}
+2025-01-02 14:25:54.398 +01:00 [INF] Processing CreateEnterpriseCommand with CorrelationId: 1cdeef23-1fe8-4eb6-a3e0-1a9382f611e0
+2025-01-02 14:25:54.579 +01:00 [INF] Publishing Event : EnterpriseCreatedEvent
+2025-01-02 14:25:54.644 +01:00 [INF] Tenant created for entreprise Haydrapharm SE0145157345
+2025-01-02 14:25:54.657 +01:00 [INF] Publishing Event : AdministrationDomainCreatedEvent
+2025-01-02 14:25:54.705 +01:00 [INF] Handling AdministrationDomainCreatedEvent for Domain ID: "51174ca7-e962-4570-a25f-973fbbc0387d" and Name: Haydrapharm SE0145157345
+2025-01-02 14:25:54.839 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 200), @p2='?' (Size = 500), @p3='?' (DbType = DateTimeOffset), @p4='?' (Size = 4000), @p5='?' (Size = 200), @p6='?' (Size = 256), @p7='?' (Size = 200), @p8='?' (DbType = Guid), @p9='?' (DbType = Int32), @p10='?' (DbType = DateTimeOffset), @p11='?' (DbType = Guid), @p12='?' (DbType = DateTimeOffset), @p13='?' (Size = 4000), @p14='?' (Size = 140), @p15='?' (Size = 14), @p16='?' (DbType = Guid), @p17='?' (DbType = DateTimeOffset), @p18='?' (Size = 50), @p19='?' (Size = 50), @p20='?' (Size = 10), @p21='?' (Size = 100), @p22='?' (DbType = Guid), @p23='?' (DbType = DateTimeOffset), @p24='?' (Size = 256), @p25='?' (Size = 256), @p26='?' (Size = 128), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (DbType = DateTime2), @p30='?' (DbType = Int32), @p31='?' (DbType = DateTimeOffset)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Admin].[AdministrationDomains] ([Id], [Administrator], [ConnectionString], [CreatedDateTime], [Description], [Domain], [Email], [Name], [TenantId], [TypeEntity], [UpdatedDateTime])
+OUTPUT INSERTED.[IsActive], INSERTED.[RowVersion]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+INSERT INTO [Admin].[Enterprises] ([Id], [CreatedDateTime], [Description], [Name], [Siret], [TenantId], [UpdatedDateTime], [MainAddress_City], [MainAddress_Country], [MainAddress_PostalCode], [MainAddress_Street])
+OUTPUT INSERTED.[RowVersion]
+VALUES (@p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+INSERT INTO [Admin].[OutboxEvent] ([Id], [CreatedDateTime], [Error], [EventType], [ObjectId], [Payload], [ProcessingId], [PublishedDate], [Status], [UpdatedDateTime])
+OUTPUT INSERTED.[RowVersion]
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31);
+2025-01-02 14:25:54.890 +01:00 [INF] Starting to publish integration events for transaction "c39af906-b0db-4e15-9e4f-1470d41906f6"
+2025-01-02 14:25:54.920 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-01-02 14:25:55.062 +01:00 [INF] Setting tenant context to "6a3b326c-b445-4029-8094-52b8b1f1c833" for message type Object
+2025-01-02 14:25:55.068 +01:00 [INF] Processing message for handler TenantConsumer
+2025-01-02 14:25:55.072 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@PublishedDate='?' (DbType = DateTime), @Status='?' (DbType = Int32), @OutboxEventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+
+            UPDATE [Admin].[OutboxEvent]
+            SET PublishedDate = @PublishedDate, 
+                Status = @Status
+            WHERE Id = @OutboxEventId
+2025-01-02 14:25:55.074 +01:00 [INF] Successfully published event "9c5690a0-c8c8-4511-89a5-5499fa0ed5d1"
+2025-01-02 14:25:55.076 +01:00 [INF] Finished processing CreateEnterpriseCommand with CorrelationId: 1cdeef23-1fe8-4eb6-a3e0-1a9382f611e0
+2025-01-02 14:25:55.078 +01:00 [INF] Handled CreateEnterpriseCommand {"Name":"Haydrapharm SE0145157345","Description":"Telecommunication Enterprise","Siret":"70052228024514","MainAddress":{"Street":"123 Main Avenue","City":"Algiers","State":"DZ","PostalCode":"16000","Country":"Algeria","$type":"Address"},"SecondAddress":null,"CorrelationId":"1cdeef23-1fe8-4eb6-a3e0-1a9382f611e0","$type":"CreateEnterpriseCommand"}
+2025-01-02 14:26:06.282 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-01-02 14:27:06.374 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-01-02 14:28:06.466 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-01-02 14:28:29.166 +01:00 [WRN] Stopping the server due to DomainUnload or ProcessExit event...
+2025-01-02 14:28:29.166 +01:00 [INF] Server i-baouche-p:14612:ff5408ba caught stopping signal...
+2025-01-02 14:28:29.167 +01:00 [INF] Server i-baouche-p:14612:ff5408ba caught stopped signal...
+2025-01-02 14:28:29.167 +01:00 [WRN] Server i-baouche-p:14612:ff5408ba caught shutdown signal...
+2025-01-02 14:28:29.168 +01:00 [WRN] Server i-baouche-p:14612:ff5408ba stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2025-01-02 14:28:29.178 +01:00 [INF] Server i-baouche-p:14612:ff5408ba successfully reported itself as stopped in 8,2544 ms
+2025-01-02 14:28:29.178 +01:00 [INF] Server i-baouche-p:14612:ff5408ba has been stopped in total 11,5912 ms
+2025-03-11 16:51:29.703 +01:00 [INF] Start installing Hangfire SQL objects...
+2025-03-11 16:51:29.991 +01:00 [INF] Hangfire SQL objects installed.
+2025-03-11 16:51:30.218 +01:00 [INF] Successfully scheduled job OutboxPublisherJob with cron expression * * * * *
+2025-03-11 16:51:30.429 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:30.438 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:30.451 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[UserName] = N'admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.200 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.203 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.204 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.205 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.206 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.207 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.208 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.208 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.209 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.210 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.210 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.217 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__adminRoleId_0='?' (DbType = Guid), @__adminId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUserRole] AS [i]
+        WHERE [i].[RoleId] = @__adminRoleId_0 AND [i].[UserId] = @__adminId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:51:31.218 +01:00 [INF] Starting to publish integration events for transaction "3f4eb030-7361-49c8-8885-dec74a94a79a"
+2025-03-11 16:51:31.220 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 16:51:31.242 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 16:51:31.280 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Administrator], [a].[ConnectionString], [a].[CreatedBy], [a].[CreatedById], [a].[CreatedDateTime], [a].[Description], [a].[Domain], [a].[Email], [a].[IsActive], [a].[Name], [a].[RowVersion], [a].[TenantId], [a].[TypeEntity], [a].[UpdateBy], [a].[UpdateById], [a].[UpdatedDateTime]
+FROM [Admin].[AdministrationDomains] AS [a]
+2025-03-11 16:51:31.627 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 16:51:31.630 +01:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-11 16:51:31.636 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-03-11 16:51:31.670 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-03-11 16:51:31.683 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 16:51:31.685 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-03-11 16:51:31.688 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-03-11 16:51:31.695 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-11 16:51:31.702 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-03-11 16:51:31.787 +01:00 [INF] Starting message handling background service.
+2025-03-11 16:51:31.853 +01:00 [INF] RabbitMQ receiver started consuming messages.
+2025-03-11 16:51:31.854 +01:00 [INF] Starting KeyRotationService
+2025-03-11 16:51:31.863 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 16:51:31.902 +01:00 [INF] Now listening on: http://localhost:5000
+2025-03-11 16:51:31.906 +01:00 [INF] Starting Hangfire Server using job storage: 'SQL Server (custom)'
+2025-03-11 16:51:31.907 +01:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-03-11 16:51:31.907 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 16
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-03-11 16:51:31.914 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-11 16:51:31.914 +01:00 [INF] Hosting environment: Production
+2025-03-11 16:51:31.914 +01:00 [INF] Content root path: C:\Projects\saylo.prototype\src\Services\Saylo.Centrex.Identity\Saylo.Centrex.Identity.Api\bin\Debug\net8.0
+2025-03-11 16:51:31.926 +01:00 [INF] Server i-baouche-p:20520:9acc72ea successfully announced in 11,2598 ms
+2025-03-11 16:51:31.929 +01:00 [INF] Server i-baouche-p:20520:9acc72ea is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-03-11 16:51:31.935 +01:00 [INF] Server i-baouche-p:20520:9acc72ea all the dispatchers started
+2025-03-11 16:51:31.940 +01:00 [INF] 1 servers were removed due to timeout
+2025-03-11 16:51:32.156 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 16:52:02.211 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 16:53:02.305 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 16:53:25.448 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 16:53:25.496 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(0 AS bit)
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 16:53:25.577 +01:00 [WRN] No tenant was resolved.
+2025-03-11 16:53:58.966 +01:00 [INF] Server i-baouche-p:20520:9acc72ea caught stopping signal...
+2025-03-11 16:53:58.967 +01:00 [INF] Application is shutting down...
+2025-03-11 16:53:58.975 +01:00 [INF] Stopping KeyRotationService
+2025-03-11 16:53:58.977 +01:00 [INF] Server i-baouche-p:20520:9acc72ea All dispatchers stopped
+2025-03-11 16:53:58.993 +01:00 [INF] Server i-baouche-p:20520:9acc72ea successfully reported itself as stopped in 4,6667 ms
+2025-03-11 16:53:58.993 +01:00 [INF] Server i-baouche-p:20520:9acc72ea has been stopped in total 26,2744 ms
+2025-03-11 16:53:58.994 +01:00 [INF] Stopping message handling background service.
+2025-03-11 16:53:59.004 +01:00 [INF] RabbitMQ receiver disposed.
+2025-03-11 16:54:45.897 +01:00 [INF] Start installing Hangfire SQL objects...
+2025-03-11 16:54:46.081 +01:00 [INF] Hangfire SQL objects installed.
+2025-03-11 16:54:46.194 +01:00 [INF] Successfully scheduled job OutboxPublisherJob with cron expression * * * * *
+2025-03-11 16:54:46.396 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:46.402 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:46.415 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[UserName] = N'admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.179 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.183 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.185 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.186 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.187 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.189 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.190 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.190 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.191 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.192 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.193 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.210 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[@__adminRoleId_0='?' (DbType = Guid), @__adminId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUserRole] AS [i]
+        WHERE [i].[RoleId] = @__adminRoleId_0 AND [i].[UserId] = @__adminId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 16:54:47.225 +01:00 [INF] Starting to publish integration events for transaction "674a0738-e027-4a7c-874e-4086751902d3"
+2025-03-11 16:54:47.247 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 16:54:47.266 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 16:54:47.305 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Administrator], [a].[ConnectionString], [a].[CreatedBy], [a].[CreatedById], [a].[CreatedDateTime], [a].[Description], [a].[Domain], [a].[Email], [a].[IsActive], [a].[Name], [a].[RowVersion], [a].[TenantId], [a].[TypeEntity], [a].[UpdateBy], [a].[UpdateById], [a].[UpdatedDateTime]
+FROM [Admin].[AdministrationDomains] AS [a]
+2025-03-11 16:54:47.563 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 16:54:47.566 +01:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-11 16:54:47.573 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-03-11 16:54:47.607 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-03-11 16:54:47.620 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 16:54:47.622 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-03-11 16:54:47.631 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-03-11 16:54:47.640 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-11 16:54:47.646 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-03-11 16:54:47.670 +01:00 [INF] Starting message handling background service.
+2025-03-11 16:54:47.709 +01:00 [INF] RabbitMQ receiver started consuming messages.
+2025-03-11 16:54:47.710 +01:00 [INF] Starting KeyRotationService
+2025-03-11 16:54:47.717 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 16:54:47.742 +01:00 [INF] Now listening on: http://localhost:5000
+2025-03-11 16:54:47.746 +01:00 [INF] Starting Hangfire Server using job storage: 'SQL Server (custom)'
+2025-03-11 16:54:47.746 +01:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-03-11 16:54:47.746 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 16
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-03-11 16:54:47.752 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-11 16:54:47.752 +01:00 [INF] Hosting environment: Production
+2025-03-11 16:54:47.752 +01:00 [INF] Content root path: C:\Projects\saylo.prototype\src\Services\Saylo.Centrex.Identity\Saylo.Centrex.Identity.Api\bin\Debug\net8.0
+2025-03-11 16:54:47.777 +01:00 [INF] Server i-baouche-p:25912:256dbe01 successfully announced in 24,0441 ms
+2025-03-11 16:54:47.780 +01:00 [INF] Server i-baouche-p:25912:256dbe01 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-03-11 16:54:47.788 +01:00 [INF] Server i-baouche-p:25912:256dbe01 all the dispatchers started
+2025-03-11 16:54:47.970 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 16:54:58.464 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 16:54:58.514 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(0 AS bit)
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 16:54:58.685 +01:00 [INF] Start processing HTTP request POST http://localhost:5000/connect/token
+2025-03-11 16:54:58.687 +01:00 [INF] Sending HTTP request POST http://localhost:5000/connect/token
+2025-03-11 16:54:58.743 +01:00 [INF] The request URI matched a server endpoint: "Token".
+2025-03-11 16:54:58.762 +01:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "admin",
+  "password": "[redacted]",
+  "client_id": "api-client",
+  "client_secret": "[redacted]",
+  "scope": "api email profile roles"
+}.
+2025-03-11 16:54:58.792 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 16:54:58.834 +01:00 [INF] The token request was successfully validated.
+2025-03-11 16:54:58.880 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[AccessFailedCount], [i].[ConcurrencyStamp], [i].[Email], [i].[EmailConfirmed], [i].[FirstName], [i].[IsActive], [i].[LastName], [i].[LockoutEnabled], [i].[LockoutEnd], [i].[NormalizedEmail], [i].[NormalizedUserName], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TenantId], [i].[TwoFactorEnabled], [i].[TypeUser], [i].[UserName]
+FROM [Admin].[IdentityUser] AS [i]
+WHERE [i].[UserName] = @__userName_0 AND [i].[IsActive] = CAST(1 AS bit)
+2025-03-11 16:54:59.139 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i0].[Name]
+FROM [Admin].[IdentityUserRole] AS [i]
+INNER JOIN [Admin].[IdentityRole] AS [i0] ON [i].[RoleId] = [i0].[Id]
+WHERE [i].[UserId] = @__userId_0
+2025-03-11 16:54:59.144 +01:00 [INF] Principal created with claims for user "26b0af42-3f0e-4a11-b28f-85248784a0f2".
+2025-03-11 16:54:59.148 +01:00 [INF] Token issued for user "26b0af42-3f0e-4a11-b28f-85248784a0f2" with TenantId "bdcb855f-a6a0-444f-997e-0004603d6c93".
+2025-03-11 16:54:59.458 +01:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 100), @p10='?' (Size = 50), @p11='?' (Size = 400), @p12='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [OpenIddictTokens] ([Id], [ApplicationId], [AuthorizationId], [ConcurrencyToken], [CreationDate], [ExpirationDate], [Payload], [Properties], [RedemptionDate], [ReferenceId], [Status], [Subject], [Type])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-03-11 16:54:59.472 +01:00 [INF] Starting to publish integration events for transaction "ab3eb966-7514-41be-a3e8-c5aa7896154f"
+2025-03-11 16:54:59.478 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 16:54:59.546 +01:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 431999
+}.
+2025-03-11 16:54:59.564 +01:00 [INF] Received HTTP response headers after 866.5387ms - 200
+2025-03-11 16:54:59.566 +01:00 [INF] End processing HTTP request after 883.1314ms - 200
+2025-03-11 16:55:02.974 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 16:55:47.726 +01:00 [WRN] Stopping the server due to DomainUnload or ProcessExit event...
+2025-03-11 16:55:47.726 +01:00 [INF] Server i-baouche-p:25912:256dbe01 caught stopping signal...
+2025-03-11 16:55:47.727 +01:00 [INF] Server i-baouche-p:25912:256dbe01 caught stopped signal...
+2025-03-11 16:55:47.727 +01:00 [WRN] Server i-baouche-p:25912:256dbe01 caught shutdown signal...
+2025-03-11 16:55:47.728 +01:00 [WRN] Server i-baouche-p:25912:256dbe01 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2025-03-11 16:55:47.735 +01:00 [INF] Server i-baouche-p:25912:256dbe01 successfully reported itself as stopped in 6,1397 ms
+2025-03-11 16:55:47.735 +01:00 [INF] Server i-baouche-p:25912:256dbe01 has been stopped in total 8,0603 ms
+2025-03-11 17:30:59.784 +01:00 [INF] Start installing Hangfire SQL objects...
+2025-03-11 17:31:00.016 +01:00 [INF] Hangfire SQL objects installed.
+2025-03-11 17:31:00.147 +01:00 [INF] Successfully scheduled job OutboxPublisherJob with cron expression * * * * *
+2025-03-11 17:31:00.347 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:00.355 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:00.367 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[UserName] = N'admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.138 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.140 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.141 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.142 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.143 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.144 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.144 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.145 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.146 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.146 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.147 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.154 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__adminRoleId_0='?' (DbType = Guid), @__adminId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUserRole] AS [i]
+        WHERE [i].[RoleId] = @__adminRoleId_0 AND [i].[UserId] = @__adminId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:31:01.154 +01:00 [INF] Starting to publish integration events for transaction "a96586df-5935-4241-aac7-2da9a666ae5d"
+2025-03-11 17:31:01.157 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:31:01.177 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:31:01.214 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Administrator], [a].[ConnectionString], [a].[CreatedBy], [a].[CreatedById], [a].[CreatedDateTime], [a].[Description], [a].[Domain], [a].[Email], [a].[IsActive], [a].[Name], [a].[RowVersion], [a].[TenantId], [a].[TypeEntity], [a].[UpdateBy], [a].[UpdateById], [a].[UpdatedDateTime]
+FROM [Admin].[AdministrationDomains] AS [a]
+2025-03-11 17:31:01.484 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 17:31:01.489 +01:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-11 17:31:01.496 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-03-11 17:31:01.537 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-03-11 17:31:01.549 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 17:31:01.551 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-03-11 17:31:01.554 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-03-11 17:31:01.563 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-11 17:31:01.571 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-03-11 17:31:01.600 +01:00 [INF] Starting message handling background service.
+2025-03-11 17:31:01.634 +01:00 [INF] RabbitMQ receiver started consuming messages.
+2025-03-11 17:31:01.635 +01:00 [INF] Starting KeyRotationService
+2025-03-11 17:31:01.642 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 17:31:01.674 +01:00 [INF] Now listening on: http://localhost:5000
+2025-03-11 17:31:01.678 +01:00 [INF] Starting Hangfire Server using job storage: 'SQL Server (custom)'
+2025-03-11 17:31:01.678 +01:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-03-11 17:31:01.678 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 16
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-03-11 17:31:01.684 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-11 17:31:01.685 +01:00 [INF] Hosting environment: Production
+2025-03-11 17:31:01.685 +01:00 [INF] Content root path: C:\Projects\saylo.prototype\src\Services\Saylo.Centrex.Identity\Saylo.Centrex.Identity.Api\bin\Debug\net8.0
+2025-03-11 17:31:01.696 +01:00 [INF] Server i-baouche-p:13784:0b738183 successfully announced in 10,1899 ms
+2025-03-11 17:31:01.699 +01:00 [INF] Server i-baouche-p:13784:0b738183 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-03-11 17:31:01.705 +01:00 [INF] Server i-baouche-p:13784:0b738183 all the dispatchers started
+2025-03-11 17:31:01.893 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:31:15.121 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 17:31:15.153 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(0 AS bit)
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 17:31:15.255 +01:00 [INF] Start processing HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:15.257 +01:00 [INF] Sending HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:15.288 +01:00 [INF] The request URI matched a server endpoint: "Token".
+2025-03-11 17:31:15.305 +01:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "admin",
+  "password": "[redacted]",
+  "client_id": "api-client",
+  "client_secret": "[redacted]",
+  "scope": "api email profile roles"
+}.
+2025-03-11 17:31:15.329 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:31:15.353 +01:00 [INF] The token request was successfully validated.
+2025-03-11 17:31:15.382 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[AccessFailedCount], [i].[ConcurrencyStamp], [i].[Email], [i].[EmailConfirmed], [i].[FirstName], [i].[IsActive], [i].[LastName], [i].[LockoutEnabled], [i].[LockoutEnd], [i].[NormalizedEmail], [i].[NormalizedUserName], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TenantId], [i].[TwoFactorEnabled], [i].[TypeUser], [i].[UserName]
+FROM [Admin].[IdentityUser] AS [i]
+WHERE [i].[UserName] = @__userName_0 AND [i].[IsActive] = CAST(1 AS bit)
+2025-03-11 17:31:15.525 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i0].[Name]
+FROM [Admin].[IdentityUserRole] AS [i]
+INNER JOIN [Admin].[IdentityRole] AS [i0] ON [i].[RoleId] = [i0].[Id]
+WHERE [i].[UserId] = @__userId_0
+2025-03-11 17:31:15.529 +01:00 [INF] Principal created with claims for user "26b0af42-3f0e-4a11-b28f-85248784a0f2".
+2025-03-11 17:31:15.531 +01:00 [INF] Token issued for user "26b0af42-3f0e-4a11-b28f-85248784a0f2" with TenantId "bdcb855f-a6a0-444f-997e-0004603d6c93".
+2025-03-11 17:31:15.649 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 100), @p10='?' (Size = 50), @p11='?' (Size = 400), @p12='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [OpenIddictTokens] ([Id], [ApplicationId], [AuthorizationId], [ConcurrencyToken], [CreationDate], [ExpirationDate], [Payload], [Properties], [RedemptionDate], [ReferenceId], [Status], [Subject], [Type])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-03-11 17:31:15.653 +01:00 [INF] Starting to publish integration events for transaction "f86dd391-bbba-4c4b-8f09-066d935377c4"
+2025-03-11 17:31:15.656 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:31:15.693 +01:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 431999
+}.
+2025-03-11 17:31:15.703 +01:00 [INF] Received HTTP response headers after 441.3024ms - 200
+2025-03-11 17:31:15.704 +01:00 [INF] End processing HTTP request after 450.3032ms - 200
+2025-03-11 17:31:17.348 +01:00 [INF] Start processing HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:17.348 +01:00 [INF] Sending HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:17.365 +01:00 [INF] The request URI matched a server endpoint: "Token".
+2025-03-11 17:31:17.368 +01:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "admin",
+  "password": "[redacted]",
+  "client_id": "api-client",
+  "client_secret": "[redacted]",
+  "scope": "api email profile roles"
+}.
+2025-03-11 17:31:17.382 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:31:17.390 +01:00 [INF] The token request was successfully validated.
+2025-03-11 17:31:17.400 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[AccessFailedCount], [i].[ConcurrencyStamp], [i].[Email], [i].[EmailConfirmed], [i].[FirstName], [i].[IsActive], [i].[LastName], [i].[LockoutEnabled], [i].[LockoutEnd], [i].[NormalizedEmail], [i].[NormalizedUserName], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TenantId], [i].[TwoFactorEnabled], [i].[TypeUser], [i].[UserName]
+FROM [Admin].[IdentityUser] AS [i]
+WHERE [i].[UserName] = @__userName_0 AND [i].[IsActive] = CAST(1 AS bit)
+2025-03-11 17:31:17.536 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i0].[Name]
+FROM [Admin].[IdentityUserRole] AS [i]
+INNER JOIN [Admin].[IdentityRole] AS [i0] ON [i].[RoleId] = [i0].[Id]
+WHERE [i].[UserId] = @__userId_0
+2025-03-11 17:31:17.537 +01:00 [INF] Principal created with claims for user "26b0af42-3f0e-4a11-b28f-85248784a0f2".
+2025-03-11 17:31:17.537 +01:00 [INF] Token issued for user "26b0af42-3f0e-4a11-b28f-85248784a0f2" with TenantId "bdcb855f-a6a0-444f-997e-0004603d6c93".
+2025-03-11 17:31:17.556 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 100), @p10='?' (Size = 50), @p11='?' (Size = 400), @p12='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [OpenIddictTokens] ([Id], [ApplicationId], [AuthorizationId], [ConcurrencyToken], [CreationDate], [ExpirationDate], [Payload], [Properties], [RedemptionDate], [ReferenceId], [Status], [Subject], [Type])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-03-11 17:31:17.557 +01:00 [INF] Starting to publish integration events for transaction "a275df9e-c6f5-45fc-9a49-9343bebdf8eb"
+2025-03-11 17:31:17.563 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:31:17.567 +01:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 431999
+}.
+2025-03-11 17:31:17.567 +01:00 [INF] Received HTTP response headers after 219.3588ms - 200
+2025-03-11 17:31:17.567 +01:00 [INF] End processing HTTP request after 219.9713ms - 200
+2025-03-11 17:31:23.355 +01:00 [INF] Start processing HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:23.356 +01:00 [INF] Sending HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:23.357 +01:00 [INF] The request URI matched a server endpoint: "Token".
+2025-03-11 17:31:23.358 +01:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "admin",
+  "password": "[redacted]",
+  "client_id": "api-client",
+  "client_secret": "[redacted]",
+  "scope": "api email profile roles"
+}.
+2025-03-11 17:31:23.376 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:31:23.389 +01:00 [INF] The token request was successfully validated.
+2025-03-11 17:31:23.413 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[AccessFailedCount], [i].[ConcurrencyStamp], [i].[Email], [i].[EmailConfirmed], [i].[FirstName], [i].[IsActive], [i].[LastName], [i].[LockoutEnabled], [i].[LockoutEnd], [i].[NormalizedEmail], [i].[NormalizedUserName], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TenantId], [i].[TwoFactorEnabled], [i].[TypeUser], [i].[UserName]
+FROM [Admin].[IdentityUser] AS [i]
+WHERE [i].[UserName] = @__userName_0 AND [i].[IsActive] = CAST(1 AS bit)
+2025-03-11 17:31:23.565 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i0].[Name]
+FROM [Admin].[IdentityUserRole] AS [i]
+INNER JOIN [Admin].[IdentityRole] AS [i0] ON [i].[RoleId] = [i0].[Id]
+WHERE [i].[UserId] = @__userId_0
+2025-03-11 17:31:23.565 +01:00 [INF] Principal created with claims for user "26b0af42-3f0e-4a11-b28f-85248784a0f2".
+2025-03-11 17:31:23.566 +01:00 [INF] Token issued for user "26b0af42-3f0e-4a11-b28f-85248784a0f2" with TenantId "bdcb855f-a6a0-444f-997e-0004603d6c93".
+2025-03-11 17:31:23.605 +01:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 100), @p10='?' (Size = 50), @p11='?' (Size = 400), @p12='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [OpenIddictTokens] ([Id], [ApplicationId], [AuthorizationId], [ConcurrencyToken], [CreationDate], [ExpirationDate], [Payload], [Properties], [RedemptionDate], [ReferenceId], [Status], [Subject], [Type])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-03-11 17:31:23.605 +01:00 [INF] Starting to publish integration events for transaction "3b099f24-b8c3-4b0a-a864-2292abcd9048"
+2025-03-11 17:31:23.612 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:31:23.615 +01:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 431999
+}.
+2025-03-11 17:31:23.616 +01:00 [INF] Received HTTP response headers after 259.8883ms - 200
+2025-03-11 17:31:23.616 +01:00 [INF] End processing HTTP request after 260.3705ms - 200
+2025-03-11 17:31:26.973 +01:00 [INF] Start processing HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:26.973 +01:00 [INF] Sending HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:31:26.975 +01:00 [INF] The request URI matched a server endpoint: "Token".
+2025-03-11 17:31:26.975 +01:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "admin",
+  "password": "[redacted]",
+  "client_id": "api-client",
+  "client_secret": "[redacted]",
+  "scope": "api email profile roles"
+}.
+2025-03-11 17:31:26.986 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:31:26.992 +01:00 [INF] The token request was successfully validated.
+2025-03-11 17:31:27.008 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[AccessFailedCount], [i].[ConcurrencyStamp], [i].[Email], [i].[EmailConfirmed], [i].[FirstName], [i].[IsActive], [i].[LastName], [i].[LockoutEnabled], [i].[LockoutEnd], [i].[NormalizedEmail], [i].[NormalizedUserName], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TenantId], [i].[TwoFactorEnabled], [i].[TypeUser], [i].[UserName]
+FROM [Admin].[IdentityUser] AS [i]
+WHERE [i].[UserName] = @__userName_0 AND [i].[IsActive] = CAST(1 AS bit)
+2025-03-11 17:31:27.122 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i0].[Name]
+FROM [Admin].[IdentityUserRole] AS [i]
+INNER JOIN [Admin].[IdentityRole] AS [i0] ON [i].[RoleId] = [i0].[Id]
+WHERE [i].[UserId] = @__userId_0
+2025-03-11 17:31:27.123 +01:00 [INF] Principal created with claims for user "26b0af42-3f0e-4a11-b28f-85248784a0f2".
+2025-03-11 17:31:27.123 +01:00 [INF] Token issued for user "26b0af42-3f0e-4a11-b28f-85248784a0f2" with TenantId "bdcb855f-a6a0-444f-997e-0004603d6c93".
+2025-03-11 17:31:27.129 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 100), @p10='?' (Size = 50), @p11='?' (Size = 400), @p12='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [OpenIddictTokens] ([Id], [ApplicationId], [AuthorizationId], [ConcurrencyToken], [CreationDate], [ExpirationDate], [Payload], [Properties], [RedemptionDate], [ReferenceId], [Status], [Subject], [Type])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-03-11 17:31:27.130 +01:00 [INF] Starting to publish integration events for transaction "76130999-ddf6-4a0c-8c9c-8997d45f27a5"
+2025-03-11 17:31:27.133 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:31:27.135 +01:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 432000
+}.
+2025-03-11 17:31:27.137 +01:00 [INF] Received HTTP response headers after 163.6255ms - 200
+2025-03-11 17:31:27.137 +01:00 [INF] End processing HTTP request after 164.0105ms - 200
+2025-03-11 17:32:01.946 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:33:02.043 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:34:02.151 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:35:02.219 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:36:02.292 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:37:02.403 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:38:02.503 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:39:02.597 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:40:02.674 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:41:02.774 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:42:02.887 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:42:54.440 +01:00 [WRN] Stopping the server due to DomainUnload or ProcessExit event...
+2025-03-11 17:42:54.440 +01:00 [INF] Server i-baouche-p:13784:0b738183 caught stopping signal...
+2025-03-11 17:42:54.441 +01:00 [INF] Server i-baouche-p:13784:0b738183 caught stopped signal...
+2025-03-11 17:42:54.441 +01:00 [WRN] Server i-baouche-p:13784:0b738183 caught shutdown signal...
+2025-03-11 17:42:54.443 +01:00 [WRN] Server i-baouche-p:13784:0b738183 stopped non-gracefully due to ServerWatchdog, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2025-03-11 17:42:54.450 +01:00 [INF] Server i-baouche-p:13784:0b738183 successfully reported itself as stopped in 6,4937 ms
+2025-03-11 17:42:54.450 +01:00 [INF] Server i-baouche-p:13784:0b738183 has been stopped in total 9,5514 ms
+2025-03-11 17:43:21.618 +01:00 [INF] Start installing Hangfire SQL objects...
+2025-03-11 17:43:21.921 +01:00 [INF] Hangfire SQL objects installed.
+2025-03-11 17:43:22.055 +01:00 [INF] Successfully scheduled job OutboxPublisherJob with cron expression * * * * *
+2025-03-11 17:43:22.251 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:22.258 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__adminRole_Name_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityRole] AS [i]
+        WHERE [i].[Name] = @__adminRole_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:22.270 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[UserName] = N'admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:22.998 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:22.999 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.000 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.001 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.002 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.003 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.004 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.005 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.005 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.006 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.007 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ef_filter__TenantId_0='?' (DbType = Guid), @__chatUser_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUser] AS [i]
+        WHERE [i].[TenantId] = @__ef_filter__TenantId_0 AND [i].[Id] = @__chatUser_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.012 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__adminRoleId_0='?' (DbType = Guid), @__adminId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Admin].[IdentityUserRole] AS [i]
+        WHERE [i].[RoleId] = @__adminRoleId_0 AND [i].[UserId] = @__adminId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-03-11 17:43:23.023 +01:00 [INF] Starting to publish integration events for transaction "6bf5705e-3684-437e-a3f6-932f28b226af"
+2025-03-11 17:43:23.041 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:43:23.059 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:43:23.099 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Administrator], [a].[ConnectionString], [a].[CreatedBy], [a].[CreatedById], [a].[CreatedDateTime], [a].[Description], [a].[Domain], [a].[Email], [a].[IsActive], [a].[Name], [a].[RowVersion], [a].[TenantId], [a].[TypeEntity], [a].[UpdateBy], [a].[UpdateById], [a].[UpdatedDateTime]
+FROM [Admin].[AdministrationDomains] AS [a]
+2025-03-11 17:43:23.366 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 17:43:23.369 +01:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-03-11 17:43:23.375 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-03-11 17:43:23.408 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-03-11 17:43:23.419 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-11 17:43:23.421 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-03-11 17:43:23.424 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-03-11 17:43:23.430 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-03-11 17:43:23.436 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-03-11 17:43:23.466 +01:00 [INF] Starting message handling background service.
+2025-03-11 17:43:23.508 +01:00 [INF] RabbitMQ receiver started consuming messages.
+2025-03-11 17:43:23.509 +01:00 [INF] Starting KeyRotationService
+2025-03-11 17:43:23.517 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 17:43:23.551 +01:00 [INF] Now listening on: http://localhost:5000
+2025-03-11 17:43:23.557 +01:00 [INF] Starting Hangfire Server using job storage: 'SQL Server (custom)'
+2025-03-11 17:43:23.558 +01:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-03-11 17:43:23.558 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 16
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-03-11 17:43:23.567 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-11 17:43:23.567 +01:00 [INF] Hosting environment: Production
+2025-03-11 17:43:23.568 +01:00 [INF] Content root path: C:\Projects\saylo.prototype\src\Services\Saylo.Centrex.Identity\Saylo.Centrex.Identity.Api\bin\Debug\net8.0
+2025-03-11 17:43:23.582 +01:00 [INF] Server i-baouche-p:12928:61951691 successfully announced in 13,3321 ms
+2025-03-11 17:43:23.585 +01:00 [INF] Server i-baouche-p:12928:61951691 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-03-11 17:43:23.596 +01:00 [INF] Server i-baouche-p:12928:61951691 all the dispatchers started
+2025-03-11 17:43:23.774 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:43:30.755 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND [c].[ExpiresAt] > @__now_0
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 17:43:30.798 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[CreatedById], [c].[CreatedDateTime], [c].[E], [c].[ExpiresAt], [c].[Filename], [c].[IsActive], [c].[Kid], [c].[Kty], [c].[N], [c].[RowVersion], [c].[Thumbprint], [c].[UpdateBy], [c].[UpdateById], [c].[UpdatedDateTime], [c].[Use]
+FROM [Admin].[CertificateMetadata] AS [c]
+WHERE [c].[IsActive] = CAST(0 AS bit)
+ORDER BY [c].[CreatedAt] DESC
+2025-03-11 17:43:30.905 +01:00 [INF] Start processing HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:43:30.906 +01:00 [INF] Sending HTTP request POST http://localhost:5000/connect/token
+2025-03-11 17:43:30.942 +01:00 [INF] The request URI matched a server endpoint: "Token".
+2025-03-11 17:43:30.958 +01:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "admin",
+  "password": "[redacted]",
+  "client_id": "api-client",
+  "client_secret": "[redacted]",
+  "scope": "api email profile roles"
+}.
+2025-03-11 17:43:30.979 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__identifier_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[ApplicationType], [o].[ClientId], [o].[ClientSecret], [o].[ClientType], [o].[ConcurrencyToken], [o].[ConsentType], [o].[DisplayName], [o].[DisplayNames], [o].[JsonWebKeySet], [o].[Permissions], [o].[PostLogoutRedirectUris], [o].[Properties], [o].[RedirectUris], [o].[Requirements], [o].[Settings]
+FROM [OpenIddictApplications] AS [o]
+WHERE [o].[ClientId] = @__identifier_0
+2025-03-11 17:43:30.997 +01:00 [INF] The token request was successfully validated.
+2025-03-11 17:43:31.024 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[AccessFailedCount], [i].[ConcurrencyStamp], [i].[Email], [i].[EmailConfirmed], [i].[FirstName], [i].[IsActive], [i].[LastName], [i].[LockoutEnabled], [i].[LockoutEnd], [i].[NormalizedEmail], [i].[NormalizedUserName], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TenantId], [i].[TwoFactorEnabled], [i].[TypeUser], [i].[UserName]
+FROM [Admin].[IdentityUser] AS [i]
+WHERE [i].[UserName] = @__userName_0 AND [i].[IsActive] = CAST(1 AS bit)
+2025-03-11 17:43:31.175 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i0].[Name]
+FROM [Admin].[IdentityUserRole] AS [i]
+INNER JOIN [Admin].[IdentityRole] AS [i0] ON [i].[RoleId] = [i0].[Id]
+WHERE [i].[UserId] = @__userId_0
+2025-03-11 17:43:31.180 +01:00 [INF] Principal created with claims for user "26b0af42-3f0e-4a11-b28f-85248784a0f2".
+2025-03-11 17:43:31.182 +01:00 [INF] Token issued for user "26b0af42-3f0e-4a11-b28f-85248784a0f2" with TenantId "bdcb855f-a6a0-444f-997e-0004603d6c93".
+2025-03-11 17:43:31.343 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 50), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 100), @p10='?' (Size = 50), @p11='?' (Size = 400), @p12='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [OpenIddictTokens] ([Id], [ApplicationId], [AuthorizationId], [ConcurrencyToken], [CreationDate], [ExpirationDate], [Payload], [Properties], [RedemptionDate], [ReferenceId], [Status], [Subject], [Type])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-03-11 17:43:31.351 +01:00 [INF] Starting to publish integration events for transaction "29cede37-3aa0-4125-9d78-6691968921f3"
+2025-03-11 17:43:31.356 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[ProcessingId] = @__ToString_0 AND [o].[Status] = 0
+2025-03-11 17:43:31.400 +01:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 432000
+}.
+2025-03-11 17:43:31.412 +01:00 [INF] Received HTTP response headers after 499.9771ms - 200
+2025-03-11 17:43:31.412 +01:00 [INF] End processing HTTP request after 509.7287ms - 200
+2025-03-11 17:44:08.780 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:45:08.914 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedBy], [o].[CreatedById], [o].[CreatedDateTime], [o].[Error], [o].[EventType], [o].[ObjectId], [o].[Payload], [o].[ProcessingId], [o].[PublishedDate], [o].[RowVersion], [o].[Status], [o].[UpdateBy], [o].[UpdateById], [o].[UpdatedDateTime]
+FROM [Admin].[OutboxEvent] AS [o]
+WHERE [o].[Status] <> 2
+ORDER BY [o].[CreatedDateTime]
+2025-03-11 17:46:02.350 +01:00 [WRN] Stopping the server due to DomainUnload or ProcessExit event...
+2025-03-11 17:46:02.351 +01:00 [INF] Server i-baouche-p:12928:61951691 caught stopping signal...
+2025-03-11 17:46:02.352 +01:00 [INF] Server i-baouche-p:12928:61951691 caught stopped signal...
+2025-03-11 17:46:02.352 +01:00 [WRN] Server i-baouche-p:12928:61951691 caught shutdown signal...
+2025-03-11 17:46:02.353 +01:00 [WRN] Server i-baouche-p:12928:61951691 stopped non-gracefully due to ServerWatchdog, CountersAggregator, SqlServerHeartbeatProcess, Worker. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2025-03-11 17:46:02.361 +01:00 [INF] Server i-baouche-p:12928:61951691 successfully reported itself as stopped in 6,9819 ms
+2025-03-11 17:46:02.361 +01:00 [INF] Server i-baouche-p:12928:61951691 has been stopped in total 9,2154 ms

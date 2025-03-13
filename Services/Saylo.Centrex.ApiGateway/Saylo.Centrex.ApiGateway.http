@@ -1,0 +1,6 @@
+@Saylo.Centrex.ApiGateway_HostAddress = http://localhost:5004
+
+GET {{Saylo.Centrex.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,14 @@
+﻿dotnet tool install --global dotnet-ef
+
+dotnet ef migrations add Init --context IdentityDbContext  --projet Saylo.Centrex.Identity.Api  -o Infrastructure/Migrations
+
+dotnet ef migrations script --context IdentityDbContext
+
+dotnet ef database update --context IdentityDbContext
+
+
+
+Add-Migration InitialCreate -OutputDir Infrastructure/Persistence/Migrations
+
+
+Script-Migration -From InitialCreate -To AddNewColumn

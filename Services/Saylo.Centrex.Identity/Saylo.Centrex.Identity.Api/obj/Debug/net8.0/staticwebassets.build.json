@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "OdX7roVJ6kzwvHKkNTKAo1cWgvyx2jEp3EaGqxJdfJs=",
+  "Source": "Saylo.Centrex.Identity.Api",
+  "BasePath": "_content/Saylo.Centrex.Identity.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

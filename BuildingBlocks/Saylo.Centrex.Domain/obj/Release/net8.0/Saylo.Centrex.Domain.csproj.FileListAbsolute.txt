@@ -1,0 +1,12 @@
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\bin\Release\net8.0\Saylo.Centrex.Domain.deps.json
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\bin\Release\net8.0\Saylo.Centrex.Domain.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\bin\Release\net8.0\Saylo.Centrex.Domain.pdb
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.csproj.AssemblyReference.cache
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.AssemblyInfoInputs.cache
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.AssemblyInfo.cs
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\refint\Saylo.Centrex.Domain.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\Saylo.Centrex.Domain.pdb
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Domain\obj\Release\net8.0\ref\Saylo.Centrex.Domain.dll

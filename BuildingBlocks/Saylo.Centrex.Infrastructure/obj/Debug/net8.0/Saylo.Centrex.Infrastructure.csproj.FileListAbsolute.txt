@@ -1,0 +1,17 @@
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Infrastructure.deps.json
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Infrastructure.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Infrastructure.pdb
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Application.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Domain.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Application.pdb
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\bin\Debug\net8.0\Saylo.Centrex.Domain.pdb
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.csproj.AssemblyReference.cache
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.AssemblyInfoInputs.cache
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.AssemblyInfo.cs
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Ce.5A6DD633.Up2Date
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\refint\Saylo.Centrex.Infrastructure.dll
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\Saylo.Centrex.Infrastructure.pdb
+C:\Projects\saylo.prototype\src\BuildingBlocks\Saylo.Centrex.Infrastructure\obj\Debug\net8.0\ref\Saylo.Centrex.Infrastructure.dll
