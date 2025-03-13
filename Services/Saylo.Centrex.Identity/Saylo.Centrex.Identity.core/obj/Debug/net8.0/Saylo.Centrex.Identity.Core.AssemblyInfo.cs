@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Saylo.Centrex.Identity.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14f19e1d0fc814ae56213bb40dcdb4a2792c1eaf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Saylo.Centrex.Identity.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Saylo.Centrex.Identity.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

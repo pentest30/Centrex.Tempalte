@@ -1,4 +1,9 @@
-﻿using Saylo.Centrex.Application.Multitenancy;
+﻿using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Saylo.Centrex.Application.Multitenancy;
 using Saylo.Centrex.Infrastructure.Cache;
 using Saylo.Centrex.Infrastructure.Identity;
 using Saylo.Centrex.Infrastructure.MultiTenancy.Configuration;

@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Saylo.Centrex.ApiGateway.props" />
-</Project>
