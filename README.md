@@ -45,8 +45,8 @@ Saylo.Centrex supports multi-tenancy with the following features:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/Saylo.Centrex.git
-   cd Saylo.Centrex
+   git clone https://github.com/yourusername/Saylo.Centrex.git](https://github.com/pentest30/Centrex.Tempalte.git
+   cd Centrex.Tempalte
    ```
 
 2. Build the solution:
