@@ -39,7 +39,6 @@ Saylo.Centrex supports multi-tenancy with the following features:
 
 - .NET 6.0 SDK or later
 - SQL Server (or compatible database)
-- Docker and Docker Compose (for containerized deployment)
 - Git
 
 ### Setup and Installation
