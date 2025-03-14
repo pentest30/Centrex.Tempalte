@@ -37,7 +37,7 @@ Saylo.Centrex supports multi-tenancy with the following features:
 
 ### Prerequisites
 
-- .NET 6.0 SDK or later
+- .NET 8.0 SDK or later
 - SQL Server (or compatible database)
 - Git
 
